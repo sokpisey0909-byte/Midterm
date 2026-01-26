@@ -4,19 +4,42 @@
 
   if(isset($_POST['name'],$_POST['username'],$_POST['password'],$_POST['confirm_password'])){
 
-    $name = $_POST['name'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
+    $name =trim( $_POST['name']);  //trim for cut pasce left right 
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    $confirm_password = trim($_POST['confirm_password']);
     if(empty($name)){
-      $nameError = "pllease input name!";
+      $nameError = "please input name!";
     }
     if(empty($username)){
-      $usernameError = "pllease input username!";
+      $usernameError = "please input username!";
     }
     if(empty($password)){
-      $passwordError = "pllease input password!";
+      $passwordError = "please input password!";
     }
+    if(strlen($password) >25 || strlen($password) <6){   //String lenght
+
+    }
+    
+    if($password!== $confirm_password){
+      $passwordError = 'password does not match';
+    }
+    if(empty($nameError) && empty($usernameError) && empty($passwordError)){
+      if(registerUser($name,$username,$password)){
+        // $name = $username = '';
+
+        echo  '<div class="alert alert-success" role="alert">
+                A simple success alert—check it out!
+              </div>';
+      }
+      else{
+        echo'<div class="alert alert-danger" role="alert">
+              A simple danger alert—check it out!
+              </div>';
+      }
+    }
+      
+
   } 
   ?>
 

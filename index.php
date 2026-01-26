@@ -1,11 +1,13 @@
 <?php
     require_once './init/db.init.php';
+    require_once './init/Function/auth.func.php';
+
 
     include './includes/header.inc.php';
     include './includes/navbar.inc.php';
 
 
-     $available_pages = ['page' , 'register', 'login'];
+     $available_pages = ['register', 'login'];
 
     if (isset($_GET['page'])){
       $page = $_GET['page'];
