@@ -1,19 +1,48 @@
+<?php
+  $username = $password = '';
+  $usernameError = $passwordError = '';
 
-<form class="col-md-8 col-lg-6 mx-auto">
+  if(isset($_POST['username'],$_POST['passwprd'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if(empty($username)){
+      $usernameError = 'please input username';
+    }
+    if (empty($passwd)) {
+        $passwdErr = 'Please input password.';
+    }
+    if (empty($usernameErr) && empty($passwordErr)) {
+
+       
+    }
+
+
+  }
+ 
+?> 
+
+
+
+
+
+
+<form method="post" action="?page=login">
     <h3>Login page</h3>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
+    <label  class="form-label">username</label>
+   <input name="username" type="text" class="form-control 
+            <?php echo empty($usernameError) ? '' : 'is-invalid' ?>
+        " value="<?php echo $username ?>">
+        <div class="invalid-feedback">
+            <?php echo $usernameError ?>
+        </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <labelclass="form-label">Password</label>
+    <input  name="password" type="password" class="form-control <?php  echo empty($passwordError) ? '' : 'is-invalid' ?>" >
+    <div class="invalid-feedback"></div> <?php echo $passwordError?></div>
   </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+  
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
    
