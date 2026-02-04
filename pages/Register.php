@@ -26,7 +26,7 @@
     }
     if(empty($nameError) && empty($usernameError) && empty($passwordError)){
       if(registerUser($name,$username,$password)){
-        // $name = $username = '';
+        $name = $username = '';
 
         echo  '<div class="alert alert-success" role="alert">
                 A simple success alert—check it out!
