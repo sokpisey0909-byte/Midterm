@@ -14,7 +14,8 @@
           <a class="nav-link" href="#">Develop</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Account
           </a>
           <ul class="dropdown-menu">
             <?php if (empty($user)) { ?>
@@ -25,8 +26,8 @@
               <li><a class="dropdown-item" href="/G19BCSY3A/?page=register">Register</a></li>
             <?php } else { ?>
               <li><a class="dropdown-item" href="/G19BCSY3A/?page=logout">Logout</a></li>
-            <?php
-            } 
+              <?php
+            }
             ?>
           </ul>
         </li>

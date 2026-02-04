@@ -51,9 +51,9 @@ function loggedInUser()
     $result = $query->get_result();
     if ($result->num_rows) {
         return $result->fetch_object();
-    } 
-        return null;
+    }
+    return null;
 
-    
+
 }
 ?>

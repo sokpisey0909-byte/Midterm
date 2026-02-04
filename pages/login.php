@@ -19,8 +19,8 @@ if (isset($_POST['username'], $_POST['password'])) {
       header('Location: ./?dashboard');
 
     } else {
-      echo'<div class="alert alert-danger" role="alert">Username or password is incorrect</div>';
-      
+      echo '<div class="alert alert-danger" role="alert">Username or password is incorrect</div>';
+
     }
   }
 }
@@ -45,11 +45,11 @@ if (isset($_POST['username'], $_POST['password'])) {
     <div class="invalid-feedback"></div>
     <?php echo $passwordError ?>
   </div>
-    <div class="mb-3 from-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  <div class="mb-3 from-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </input>
-    </div>
+  </div>
   </div>
   </div>
 
