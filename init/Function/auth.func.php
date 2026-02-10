@@ -56,4 +56,39 @@ function loggedInUser()
 
 
 }
+function isAdmin()
+{
+    $user = loggedInUser();
+    if ($user && $user->Level === 'admin') {
+        return true;
+    }
+    return false;
+}
+function isUserHasPassword($password)
+{
+    global $db;
+    $user = loggedInUser();
+    $query = $db->prepare('SELECT * FROM tbl_users WHERE id = ? AND password = ?');
+
+    $query->bind_param('ss', $user->id, $password);
+    $query->execute();
+    $result = $query->get_result();
+    if ($result->num_rows) {
+        return true;
+    }
+    return false;
+}
+
+function setUserNewPassword($password)
+{
+    global $db;
+    $user = loggedInUser();
+    $query = $db->prepare('UPDATE tbl_users SET password = ? WHERE id = ?');
+    $query->bind_param('ss', $password, $user->id);
+    $query->execute();
+    if ($db->affected_rows) {
+        return true;
+    }
+    return false;
+}
 ?>

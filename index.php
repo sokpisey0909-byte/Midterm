@@ -1,14 +1,12 @@
 <?php
 ob_start();
 require_once './init/init.php';
-
 $user = loggedInUser();
-
 include './includes/header.inc.php';
 include './includes/navbar.inc.php';
 
-$available_pages = ['register', 'login', 'dashboard', 'logout'];
-$logged_in_pages = ['dashboard'];
+$available_pages = ['register', 'login', 'dashboard', 'logout', 'Profile'];
+$logged_in_pages = ['dashboard', 'profile'];
 $non_logged_in_pages = ['login', 'register'];
 
 $page = '';
@@ -19,7 +17,7 @@ if (in_array($page, $logged_in_pages) && empty($user)) {
   header('Location: ./?page=login');
 }
 if (in_array($page, $non_logged_in_pages) && !empty($user)) {
-  header('Location: ./?page=dashboard');
+  header('Location: ./?page=Profile');
 }
 if (in_array($page, $available_pages)) {
   include './pages/' . $page . '.php';
